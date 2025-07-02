@@ -10,6 +10,8 @@ import org.springframework.security.core.session.SessionRegistry;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
+//import static org.springframework.security.config.Customizer.withDefaults;
+
 @Configuration
 @EnableWebSecurity //se establece que es clase de configuración de security
 public class SecurityConfig {
@@ -41,6 +43,8 @@ public class SecurityConfig {
                         .expiredUrl("/login")
                         .sessionRegistry(sessionRegistry())
                 ) //Va a crear una sesion siempre y cuando no exista alguna otra
+                //.httpBasic(withDefaults()) En caso de configuraciones basicas, envio de 
+                                            //credenciales en header de endpoint
                 .build();
     }
 
